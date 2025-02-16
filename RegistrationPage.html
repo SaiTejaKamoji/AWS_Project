@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .register-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 1rem;
+            color: #ff5e78;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #ff5e78;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #e04e65;
+        }
+        p {
+            margin-top: 1rem;
+        }
+        a {
+            color: #ff5e78;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h1>Registration Page</h1>
+        <form action="{{url_for('registration')}}" method="POST" enctype="multipart/form-data">
+            <div>{{ message }}</div>
+            <label for="username">User Name:</label>
+            <input id="username" name="username" type="text" placeholder="User Name" autocomplete="off" required />
+            <label for="password">Password:</label>
+            <input id="password" name="password" type="password" placeholder="Password" autocomplete="off" required />
+            <label for="firstname">First Name:</label>
+            <input id="firstname" name="firstname" type="text" placeholder="First Name" autocomplete="off" required />
+            <label for="lastname">Last Name:</label>
+            <input id="lastname" name="lastname" type="text" placeholder="Last Name" autocomplete="off" required />
+            <label for="email">Email:</label>
+            <input id="email" name="email" type="text" placeholder="Email" autocomplete="off" required />
+            <label for="textfile">Upload File:</label>
+            <input type="file" id="textfile" name="textfile" required />
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="{{url_for('login')}}">Login here</a></p>
+    </div>
+</body>
+</html>
